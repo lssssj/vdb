@@ -8,7 +8,7 @@ FaissIndex::FaissIndex(faiss::Index* index) : index_(index) {
 }
 
 void FaissIndex::InsertVectors(const std::vector<float>& data, uint64_t lable) {
-    faiss::idx_t id = static_cast<faiss::idx_t>(lable);
+    auto id = static_cast<faiss::idx_t>(lable);
     index_->add_with_ids(1, data.data(), &id);
 }
 

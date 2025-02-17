@@ -105,7 +105,7 @@ void HttpServer::SearchHandler(const httplib::Request& req, httplib::Response& r
     SearchResult results; // 直接声明results变量
     switch (index_type) {
         case IndexFactory::IndexType::FLAT: {
-            FaissIndex* faiss_index = static_cast<FaissIndex*>(index);
+            auto faiss_index = static_cast<FaissIndex*>(index);
             results = faiss_index->SearchVectors(query, k);
             break;
         }
@@ -193,7 +193,7 @@ void HttpServer::InsertHandler(const httplib::Request& req, httplib::Response& r
     // 根据索引类型初始化索引对象并调用insert_vectors函数
     switch (index_type) {
         case IndexFactory::IndexType::FLAT: {
-            FaissIndex* faiss_index = static_cast<FaissIndex*>(index);
+            auto faiss_index = static_cast<FaissIndex*>(index);
             faiss_index->InsertVectors(data, label);
             break;
         }
