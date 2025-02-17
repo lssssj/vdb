@@ -4,9 +4,9 @@
 
 namespace vdb {
 
-extern std::shared_ptr<spdlog::logger> GlobalLogger;
+extern std::shared_ptr<spdlog::logger> global_logger;
 
-void init_global_logger();
-void set_log_level(spdlog::level::level_enum log_level);
+void InitGlobalLogger();
+void SetLogLevel(spdlog::level::level_enum log_level);
 
 } // namespace vdb

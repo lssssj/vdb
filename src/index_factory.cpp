@@ -7,13 +7,13 @@
 
 namespace vdb {
     
-IndexFactory globalIndexFactory; 
+IndexFactory global_index_factory; 
 
-IndexFactory* getGlobalIndexFactory() {
-    return &globalIndexFactory; 
+IndexFactory* GetGlobalIndexFactory() {
+    return &global_index_factory; 
 }
 
-void IndexFactory::init(IndexType type, int dim, MetricType metric) {
+void IndexFactory::Init(IndexType type, int dim, MetricType metric) {
     faiss::MetricType faiss_metric = (metric == MetricType::L2) ? faiss::METRIC_L2 : faiss::METRIC_INNER_PRODUCT;
 
     switch (type) {
@@ -25,7 +25,7 @@ void IndexFactory::init(IndexType type, int dim, MetricType metric) {
     }
 }
 
-void* IndexFactory::getIndex(IndexType type) const { 
+void* IndexFactory::GetIndex(IndexType type) const { 
     auto it = index_map_.find(type);
     if (it != index_map_.end()) {
         return it->second;

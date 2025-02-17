@@ -1,4 +1,4 @@
-# 定义可执行文件
+# 定义生成index目录，包含什么目标文件
 add_library(
     index
     OBJECT
@@ -8,6 +8,7 @@ add_library(
     logger.cpp
 )
 
+# 定义可执行文件
 add_executable(main vdb_server.cpp)
 
 

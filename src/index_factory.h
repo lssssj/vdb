@@ -15,12 +15,12 @@ public:
         L2,
         IP
     };
-    void init(IndexType type, int dim, MetricType metric = MetricType::L2);
-    void* getIndex(IndexType type) const;
+    void Init(IndexType type, int dim, MetricType metric = MetricType::L2);
+    void* GetIndex(IndexType type) const;
 private:
     std::map<IndexType, void*> index_map_;    
 };
 
-IndexFactory* getGlobalIndexFactory();
+IndexFactory* GetGlobalIndexFactory();
 
 } // namespace vdb

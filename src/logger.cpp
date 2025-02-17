@@ -3,14 +3,14 @@
 
 namespace vdb {
 
-std::shared_ptr<spdlog::logger> GlobalLogger;
+std::shared_ptr<spdlog::logger> global_logger;
 
-void init_global_logger() {
-    GlobalLogger = spdlog::stdout_color_mt("GlobalLogger");
+void InitGlobalLogger() {
+    global_logger = spdlog::stdout_color_mt("GlobalLogger");
 }
 
-void set_log_level(spdlog::level::level_enum log_level) {
-    GlobalLogger->set_level(log_level);
+void SetLogLevel(spdlog::level::level_enum log_level) {
+    global_logger->set_level(log_level);
 }
 
 } // namespace vdb

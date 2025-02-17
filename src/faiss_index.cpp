@@ -7,12 +7,12 @@ FaissIndex::FaissIndex(faiss::Index* index) : index_(index) {
 
 }
 
-void FaissIndex::insert_vectors(const std::vector<float>& data, uint64_t lable) {
+void FaissIndex::InsertVectors(const std::vector<float>& data, uint64_t lable) {
     faiss::idx_t id = static_cast<faiss::idx_t>(lable);
     index_->add_with_ids(1, data.data(), &id);
 }
 
-SearchResult FaissIndex::search_vectors(const std::vector<float>& query, int k) {
+SearchResult FaissIndex::SearchVectors(const std::vector<float>& query, int k) {
     int dim = index_->d;
     int num_queries = query.size();
     

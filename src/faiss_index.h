@@ -7,15 +7,15 @@
 namespace vdb {
 
 struct SearchResult {
-    std::vector<int64_t> indices;
-    std::vector<float> distances;
+    std::vector<int64_t> indices_;
+    std::vector<float> distances_;
 };
 
 class FaissIndex {
 public:
-    FaissIndex(faiss::Index* index);
-    void insert_vectors(const std::vector<float>& data, uint64_t lable);
-    SearchResult search_vectors(const std::vector<float>& query, int k);
+    explicit FaissIndex(faiss::Index* index);
+    void InsertVectors(const std::vector<float>& data, uint64_t lable);
+    SearchResult SearchVectors(const std::vector<float>& query, int k);
 private:
     faiss::Index* index_;    
 };
